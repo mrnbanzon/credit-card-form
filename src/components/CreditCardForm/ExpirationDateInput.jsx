@@ -22,14 +22,16 @@ const ExpirationDateInput = ({ selectMonth, selectYear, handleChange }) => {
       <legend>Expiration Date</legend>
       <DropDown
         name="month"
-        placeholder="Month"
+        placeholder="MM"
+        placeholderVal="Month"
         val={selectMonth}
         options={months}
         handleChange={handleChange}
       />
       <DropDown
         name="year"
-        placeholder="Year"
+        placeholder="YYYY"
+        placeholderVal="Year"
         val={selectYear}
         options={years}
         handleChange={handleChange}

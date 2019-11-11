@@ -8,8 +8,8 @@ class CreditCardForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      month: undefined,
-      year: undefined,
+      month: "MM",
+      year: "YYYY",
       cardNumber: undefined,
       cardHolder: undefined,
       cvv: undefined,
@@ -42,7 +42,7 @@ class CreditCardForm extends React.Component {
     return (
       <form className="credit-card-form container" onSubmit={this.handleSubmit}>
         <CreditCard {...this.state} />
-        <div>
+        <div className="credit-card-form-input">
           <FieldSetInput
             className="card-info-fieldset"
             label="Card Number"
@@ -73,7 +73,7 @@ class CreditCardForm extends React.Component {
               handleBlur={this.handleCardFaceDisplay}
             />
           </div>
-          <button className="credit-card-form-submit" type="submit">Submit</button>
+          <button className="credit-card-form-submit container" type="submit">Submit</button>
         </div>
       </form>
     );
