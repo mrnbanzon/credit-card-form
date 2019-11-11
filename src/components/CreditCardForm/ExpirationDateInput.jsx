@@ -18,7 +18,7 @@ const ExpirationDateInput = ({ selectMonth, selectYear, handleChange }) => {
   }
 
   return (
-    <fieldset className="card-info-fieldset expiration-date">
+    <fieldset className="card-info-fieldset expiration-date-input">
       <legend>Expiration Date</legend>
       <DropDown
         name="month"

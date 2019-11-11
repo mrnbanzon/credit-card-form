@@ -18,6 +18,7 @@ class CreditCardForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleCardFaceDisplay = this.handleCardFaceDisplay.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -31,43 +32,49 @@ class CreditCardForm extends React.Component {
     this.setState({ showCardBack });
   }
 
+  handleSubmit(e) {
+    e.preventDefault(); // do nothing for now...
+  }
+
   render() {
     let { month, year, cardNumber, cardHolder, cvv } = this.state;
 
     return (
-      <form className="credit-card-form container">
+      <form className="credit-card-form container" onSubmit={this.handleSubmit}>
         <CreditCard {...this.state} />
-        <FieldSetInput
-          className="card-info-fieldset"
-          label="Card Number"
-          val={cardNumber}
-          name="cardNumber"
-          handleChange={this.handleChange}
-        />
-        <FieldSetInput
-          className="card-info-fieldset"
-          label="Card Holder"
-          val={cardHolder}
-          name="cardHolder"
-          handleChange={this.handleChange}
-        />
-        <div className="card-info-exp-and-cvv">
-          <ExpirationDateInput
-            selectMonth={month}
-            selectYear={year}
+        <div>
+          <FieldSetInput
+            className="card-info-fieldset"
+            label="Card Number"
+            val={cardNumber}
+            name="cardNumber"
             handleChange={this.handleChange}
           />
           <FieldSetInput
-            className="card-info-fieldset cvv"
-            label="CVV"
-            val={cvv}
-            name="cvv"
+            className="card-info-fieldset"
+            label="Card Holder"
+            val={cardHolder}
+            name="cardHolder"
             handleChange={this.handleChange}
-            handleFocus={this.handleCardFaceDisplay}
-            handleBlur={this.handleCardFaceDisplay}
           />
+          <div className="card-info-exp-and-cvv">
+            <ExpirationDateInput
+              selectMonth={month}
+              selectYear={year}
+              handleChange={this.handleChange}
+            />
+            <FieldSetInput
+              className="card-info-fieldset cvv-input"
+              label="CVV"
+              val={cvv}
+              name="cvv"
+              handleChange={this.handleChange}
+              handleFocus={this.handleCardFaceDisplay}
+              handleBlur={this.handleCardFaceDisplay}
+            />
+          </div>
+          <button className="credit-card-form-submit" type="submit">Submit</button>
         </div>
-        <button className="credit-card-form-submit">Submit</button>
       </form>
     );
   }

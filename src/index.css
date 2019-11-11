@@ -9,6 +9,7 @@ body {
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 #app {
@@ -21,21 +22,24 @@ fieldset {
 .container {
   width: 100%;
   height: 100%;
-  border-radius: 4%;
-  box-shadow: 0px 20px 50px 10px rgba(0, 0, 0, 0.07);
+  border-radius: 5%/8%;
+  box-shadow: 0px 20px 50px 5px rgba(0, 0, 0, 0.4);
+}
+
+.credit-card-container, .card-front, .card-back {
+  width: 350px;
+  height: 210px;
+  box-sizing: border-box;
 }
 
 .credit-card-container {
-  width: 350px;
-  height: 220px;
   margin: auto;
   perspective: 1000px; /* for the card flip functionality*/
-  text-align: center; /* temporary */
 }
 
 /* For Card Flip Functionality */
 .card-flipper {
-  transition: 1.5s;
+  transition: 1s;
   transform-style: preserve-3d;
   position: relative;
 }
@@ -47,20 +51,30 @@ fieldset {
 .card-front, .card-back {
   position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
+  padding: 15px 0;
   border-radius: inherit;
-  background-color: lightgoldenrodyellow; /* temporary */
+  background-color: maroon; /* temporary */
   backface-visibility: hidden;
 }
 
 .card-front {
-  z-index: 2;
-  transform: rotateY(0deg);
+  color: white;
 }
 
 .card-back {
   transform: rotateY(180deg);
+}
+
+.card-cvv {
+  background-color: white;
+  width: 90%;
+}
+
+.card-back .card-strip {
+  width: 100%;
+  height: 20%;
+  margin: 2% 0;
+  background-color: black;
 }
 
 .credit-card-form {
@@ -74,19 +88,28 @@ fieldset {
   background-color: white;
 }
 
-.credit-card-form > .credit-card-container {
+.credit-card-form > * {
   position: relative;
   top: -30%;
 }
 
-.card-info-fieldset {
-  border: none;
+.card-cvv,
+.credit-card-form-submit,
+.expiration-date-input select,
+.card-info-fieldset input {
+  height: 40px;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.expiration-date-input select,
+.card-info-fieldset input {
+  border: 1px solid lightgray;
+  background-color: white;
 }
 
 .card-info-fieldset input {
   width: 100%;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -95,19 +118,25 @@ fieldset {
   justify-content: space-between;
 }
 
-.expiration-date {
+.expiration-date-input {
   flex: 2;
 }
 
-.expiration-date select {
+.expiration-date-input select {
   width: 40%;
 }
 
-.cvv {
+.cvv-input {
   flex: 1;
 }
 
 .credit-card-form-submit {
   width: 100%;
+  height: 45px;
+  color: white;
+  background-color: royalblue;
   text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  border: none;
 }
