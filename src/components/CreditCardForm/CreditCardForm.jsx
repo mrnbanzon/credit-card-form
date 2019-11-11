@@ -35,7 +35,7 @@ class CreditCardForm extends React.Component {
     let { month, year, cardNumber, cardHolder, cvv } = this.state;
 
     return (
-      <div className="credit-card-form container">
+      <form className="credit-card-form container">
         <CreditCard {...this.state} />
         <FieldSetInput
           className="card-info-fieldset"
@@ -52,7 +52,7 @@ class CreditCardForm extends React.Component {
           handleChange={this.handleChange}
         />
         <div className="card-info-exp-and-cvv">
-          <ExpirationDate
+          <ExpirationDateInput
             selectMonth={month}
             selectYear={year}
             handleChange={this.handleChange}
@@ -67,8 +67,8 @@ class CreditCardForm extends React.Component {
             handleBlur={this.handleCardFaceDisplay}
           />
         </div>
-        <button className="submit">Submit</button>
-      </div>
+        <button className="credit-card-form-submit">Submit</button>
+      </form>
     );
   }
 }
