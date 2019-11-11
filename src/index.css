@@ -1,0 +1,113 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Source Sans Pro';
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: rgb(215, 236, 255);
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  border-radius: 4%;
+  box-shadow: 0px 20px 50px 10px rgba(0, 0, 0, 0.07);
+}
+
+.credit-card-container {
+  width: 350px;
+  height: 220px;
+  margin: auto;
+  perspective: 1000px; /* for the card flip functionality*/
+  text-align: center; /* temporary */
+}
+
+/* For Card Flip Functionality */
+.card-flipper {
+  transition: 1.5s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.perform-flip {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background-color: lightgoldenrodyellow; /* temporary */
+  backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.credit-card-form {
+  position: relative;
+  top: 22%;
+  padding: 1.5%;
+  margin: auto;
+  width: 430px;
+  height: 410px;
+  border-radius: 2%;
+  background-color: white;
+}
+
+.credit-card-form > .credit-card-container {
+  position: relative;
+  top: -30%;
+}
+
+.card-info-fieldset {
+  border: none;
+}
+
+.card-info-fieldset input {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-info-exp-and-cvv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expiration-date {
+  flex: 2;
+}
+
+.expiration-date select {
+  width: 40%;
+}
+
+.cvv {
+  flex: 1;
+}
+
+.submit {
+  width: 100%;
+  text-align: center;
+}
